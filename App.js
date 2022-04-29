@@ -5,7 +5,7 @@ import {
   FlatList,
   Keyboard,
   TouchableWithoutFeedback,
-  ScrollView
+  SafeAreaView
 } from "react-native";
 import AddToDoItem from "./components/AddToDoItem";
 import Header from "./components/Header";
@@ -16,7 +16,8 @@ export default function App() {
     { text: "buy coffee", key: "1" },
     { text: "create an app", key: "2" },
     { text: "go shopping", key: "3" },
-    { text: "go home", key: "4" }
+    { text: "go home", key: "4" },
+    { text: "Gota Go Home", key: "5" }
   ]);
 
   const pressHandler = (key) => {
@@ -32,28 +33,26 @@ export default function App() {
   };
 
   return (
-    <ScrollView>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
-        }}
-      >
-        <View style={styles.container}>
-          <Header />
-          <View style={styles.content}>
-            <AddToDoItem submitHandler={submitHandler} />
-            <View style={styles.list}>
-              <FlatList
-                data={todos}
-                renderItem={({ item }) => (
-                  <ToDoItem item={item} pressHandler={pressHandler} />
-                )}
-              />
-            </View>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          <AddToDoItem submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <FlatList
+              data={todos}
+              renderItem={({ item }) => (
+                <ToDoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
           </View>
         </View>
-      </TouchableWithoutFeedback>
-    </ScrollView>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -63,9 +62,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   content: {
+    flex: 1,
+    backgroundColor: "pink",
     padding: 40
   },
   list: {
+    flex: 1,
     marginTop: 20
   }
 });

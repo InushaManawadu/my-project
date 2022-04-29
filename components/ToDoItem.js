@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
   item: {
     padding: 16,
     marginTop: 16,
-    borderColor: "#bbb",
+    borderColor: "#333",
     borderWidth: 1,
     borderStyle: "dashed",
-    borderRadius: 10,
+    borderRadius: 20,
     flexDirection: "row"
   },
   itemText: {

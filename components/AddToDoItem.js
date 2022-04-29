@@ -1,4 +1,4 @@
-import { StyleSheet, Button, View, TextInput } from "react-native";
+import { StyleSheet, Button, View, TextInput, Keyboard } from "react-native";
 import { useState } from "react";
 
 export default function AddToDoItem({ submitHandler }) {
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: "#ddd"
+    borderBottomColor: "#ddd",
+    fontSize: 18
   }
 });
